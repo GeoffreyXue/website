@@ -7,7 +7,6 @@ Check it out!
 
 
 Next Steps
-- Display image, Introduction in Home
 - Write out Contact Information
 - Fill in projects
     - Find pictures

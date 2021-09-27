@@ -18,13 +18,13 @@
 
 .Strip {
     background-color: white;
-    height: 2vh;
+    height: calc(0.5vh + 0.5vw);
     width: 100vw;
 }
 
 .PictureBackground {
-    width: 25vw;
-    height: 25vw;
+    width: calc(16vh + 12.5vw);
+    height: calc(16vh + 12.5vw);
 
     background-color: white;
     border-radius: 50%;
@@ -33,26 +33,26 @@
 .Picture {
     position: relative;
     z-index: 1;
-    width: 23vw;
-    height: 23vw;
-    top: 1vw;
-    left: 1vw;
+    width: calc(15vh + 11.5vw);
+    height: calc(15vh + 11.5vw);
+    top: calc(0.5vh + 0.5vw);
+    left: calc(0.5vh + 0.5vw);
 }
 
 .Name {
     position: relative;
     z-index: 1;
-    top: -17.5vw;
+    top: calc(-11vh - 9vw);
     color: white;
-    font-size: 4vw;
+    font-size: calc(2.5vh + 2vw);
 }
 
 .Information {
     position: relative;
     z-index: 1;
-    top: 16vw;
+    top: calc(11vh + 9vw);
     color: white;
-    font-size: 2vw;
+    font-size: calc(1.5vh + 1vw);
     text-align: center;
 }
 
