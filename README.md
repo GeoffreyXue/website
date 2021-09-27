@@ -7,10 +7,11 @@ Check it out!
 
 
 Next Steps
-- Write out Contact Information
 - Fill in projects
     - Find pictures
     - Find links
+- Add contact form functionality
 - Add animations to cards
 - Add animations to panels
+- Add home page featured projects
 - DB for projects (?)
