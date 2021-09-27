@@ -1,15 +1,30 @@
 .Home {
     height: calc(100vh - 56px);
     width: 100%;
+    overflow-x: hidden;
+}
+
+.Panel {
+    height: 100%;
+    background-color: rgb(43, 52, 61);
+	display: grid;
+	align-items: center;
+	justify-items: center;
+}
+
+.Panel > * {
+	grid-area: 1/1/1/1;
+}
+
+.Strip {
+    background-color: white;
+    height: 2vh;
+    width: 100vw;
 }
 
 .PictureBackground {
-    position: relative;
-    z-index: 1;
-    width: 20vw;
-    height: 20vw;
-    top: calc(-50% - 10vw);
-    left: calc(50% - 10vw);
+    width: 25vw;
+    height: 25vw;
 
     background-color: white;
     border-radius: 50%;
@@ -17,30 +32,30 @@
 
 .Picture {
     position: relative;
-    z-index: 2;
-    width: 18vw;
-    height: 18vw;
-    top: calc(-50% - 29vw);
-    left: calc(50% - 9vw);
+    z-index: 1;
+    width: 23vw;
+    height: 23vw;
+    top: 1vw;
+    left: 1vw;
 }
 
-.Panels {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+.Name {
+    position: relative;
+    z-index: 1;
+    top: -17.5vw;
+    color: white;
+    font-size: 4vw;
 }
 
-.TopPanel {
-    background-color: rgb(43, 52, 61);
-    flex: 1;
+.Information {
+    position: relative;
+    z-index: 1;
+    top: 16vw;
+    color: white;
+    font-size: 2vw;
+    text-align: center;
 }
 
-.Strip {
-    background-color: white;
-    height: 2.5vh;
-}
-
-.BottomPanel {
-    background-color: rgb(43, 52, 61);
-    flex: 1;
+.Body {
+    padding: 3vw;
 }
