@@ -2,13 +2,23 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
+import terminal from './../../images/terminal.svg';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Navigation() {
   return (
     <Navbar bg="dark" variant="dark" sticky="top">
         <Container>
-        <Navbar.Brand>Geoffrey Xue</Navbar.Brand>
+        <Navbar.Brand>
+            <img
+                src={terminal}
+                width='50'
+                height='30'
+                className="d-inline-block align-top"
+                alt='terminal logo'
+            />
+      Geoffrey Xue</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
