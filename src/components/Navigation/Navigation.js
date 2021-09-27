@@ -27,7 +27,6 @@ function Navigation() {
             <Nav.Link href="/website/#contact">Contact</Nav.Link>
             </Nav>
         </Navbar.Collapse>
-        <Navbar.Text>V0.10</Navbar.Text>
         </Container>
     </Navbar>
   );
