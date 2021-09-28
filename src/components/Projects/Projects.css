@@ -1,3 +1,17 @@
-.projects {
-    margin: auto;
+.Projects {
+    margin: 3vw;
+}
+
+.Introduction {
+    padding: calc(2vh) 0;
+    font-size: calc(2vh);
+}
+
+.Card {
+    padding: calc(2vh) 0;
+}
+
+.CardImage {
+    height: calc(25vh + 10vw);
+    object-fit: cover;
 }
