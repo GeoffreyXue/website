@@ -1,0 +1,73 @@
+---
+title: "Typeracer Data"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(scales)
+library(lubridate)
+library(XML) #For reading in HTML files
+## Note: this code assumes viridis.R is two steps up the file directory tree in a `scripts` folder
+source("../../scripts/viridis.R")
+```
+
+```{r}
+
+races_columns = c(
+  "n",
+  "wpm",
+  "accuracy",
+  "points",
+  "place",
+  "date"
+)
+
+
+races = readHTMLTable("../../data/race_history.html")[3]$`NULL`
+# remove invisible column
+races = races[-7]
+# add column names
+names(races) = races_columns
+
+# convert html table formats to correct format
+races = races %>% 
+  mutate(n = as.numeric(n),
+         wpm = parse_number(wpm),
+         accuracy = parse_number(accuracy),
+         points = as.numeric(points),
+         place = parse_number(place),
+         date = mdy(date))
+
+# convert missing dates that were "today" to today()
+races = races %>% 
+  mutate(date = replace_na(date, today()))
+
+str(races)
+```
+
+```{r}
+ggplot(races, aes(x = n, y = wpm)) +
+  geom_point(shape = 4) +
+  geom_smooth(se = FALSE, size = 1.2) +
+  xlab("Race Number") +
+  ylab("WPM") +
+  ggtitle("WPM Over Time", subtitle = "Me, 2018-2021")
+
+
+races %>% 
+  summarize(n = n(), mean = mean(wpm), median = median(wpm), max = max(wpm), min = min(wpm))
+
+```
+
+```{r}
+ggplot(races, aes(x = n, y = wpm)) +
+  geom_hex(bins = 45) +
+  geom_smooth(se = FALSE, size = 1.2, color = "lavender") +
+  xlab("Race Number") +
+  ylab("WPM") +
+  ggtitle("WPM Over Time", subtitle = "Me, 2018-2021")
+```

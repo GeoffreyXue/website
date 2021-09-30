@@ -7,6 +7,9 @@ import robotics_documentation from './../../images/robotics_documentation.png';
 import swerve_drive from './../../images/swerve_drive.jpeg';
 import react_bootstrap from './../../images/react_bootstrap.png';
 import old_website from './../../images/old_website.png';
+import wpm_races from './../../images/wpm_races.png';
+
+import wpm from './../../images/wpm_over_time.png';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,8 +18,22 @@ import './Projects.css';
 function Projects() {
     return (
         <div className='Projects'>
-            <div className='Introduction'>This is a list of projects that I've been involved in, from personal, club-related, and even work projects.</div>
+            <div className='Introduction'>A list of projects/experiments/hacks.</div>
         <Row xs={1} md={2} className="g-4 Projects">
+            <Card>
+                <Card.Img className='CardImage' variant="top" src={wpm_races} />
+                <Card.Body>
+                <Card.Title>Personal - WPM R Plot</Card.Title>
+                <Card.Subtitle>September 2021</Card.Subtitle>
+                <Card.Text>
+                    I web scraped my typing data from typeracer and graphed my words per minute
+                     over time, from 2018 to now. I just learned R, so this is more of a test than a project.
+                </Card.Text>
+                <Card.Link href={wpm}>
+                    Plot
+                </Card.Link>
+                </Card.Body>
+            </Card>
             <Col>
             <Card>
                 <Card.Img className='CardImage' variant="top" src={react_bootstrap} />
