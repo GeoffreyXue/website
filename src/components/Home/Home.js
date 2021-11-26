@@ -46,6 +46,7 @@ function Home() {
                         </Card.Text>
                         </Card.Body>
                     </Card>
+                    <br/>
                 </div>
             </div>
         </div> 
