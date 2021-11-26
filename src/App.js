@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Navigation from './components/Navigation/Navigation'
 import Home from './components/Home/Home';
@@ -25,7 +25,8 @@ function App() {
             <Navigation />
             <Switch>
                 <Route exact path='/' component={Home} />
-                <Route exact path='/contact' component={Contact} />
+                <Route exact path='/home' component={Home} />
+                {/* <Route exact path='/contact' component={Contact} /> */}
                 <Route exact path='/projects' component={Projects} />
                 <Route exact path='/resume' component={Resume} />
             </Switch>

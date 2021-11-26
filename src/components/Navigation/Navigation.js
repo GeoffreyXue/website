@@ -23,9 +23,9 @@ function Navigation() {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                    <Nav.Link href="/website">Home</Nav.Link>
+                    <Nav.Link href="/website/#home">Home</Nav.Link>
                     <Nav.Link href="/website/#projects">Projects</Nav.Link>
-                    <Nav.Link href="/website/#contact">Contact</Nav.Link>
+                    {/* <Nav.Link href="/website/#contact">Contact</Nav.Link> */}
                     <Nav.Link href="/website/#resume">Resume</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
