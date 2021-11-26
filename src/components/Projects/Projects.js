@@ -66,12 +66,13 @@ function Projects() {
                 id: i,
                 label: b,
                 type: mapping[b] ? mapping[b].Type : "primary",
+                text: mapping[b] ? mapping[b].Text : null,
             }
         })
         .map((b) => {
             return {
                 ...b,
-                text: (b.type === "warning" || b.type === "light") ? "dark" : "light"
+                text: b.text ?? ((b.type === "warning" || b.type === "light") ? "dark" : "light")
             }
         })
         return badges;
