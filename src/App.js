@@ -1,3 +1,4 @@
+import { createContext } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Navigation from './components/Navigation/Navigation'
@@ -8,17 +9,26 @@ import Projects from './components/Projects/Projects';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from './environments/Config';
+
+console.log("initializing...");
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+export const FirebaseContext = createContext(app);
+
 function App() {
-  return (
-    <>
-        <Navigation/>
-        <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/contact' component={Contact} />
-            <Route exact path='/projects' component={Projects} />
-        </Switch>
-    </>
-  );
+    return (
+        <FirebaseContext.Provider value={app}>
+            <Navigation />
+            <Switch>
+                <Route exact path='/' component={Home} />
+                <Route exact path='/contact' component={Contact} />
+                <Route exact path='/projects' component={Projects} />
+            </Switch>
+        </FirebaseContext.Provider>
+    );
 }
 
 export default App;
