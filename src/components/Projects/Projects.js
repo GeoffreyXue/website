@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Badge from 'react-bootstrap/Badge';
 
 import { getDatabase, ref, child, get } from "firebase/database";
 import { FirebaseContext } from './../../App';
@@ -15,9 +16,9 @@ function Projects() {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
-        get(child(dbRef, `1tZvZzhRKlrNdr5GNieDeQ2-7dnDAnATqF_zqnmmODdA/Sheet1`)).then((snapshot) => {
+        get(child(dbRef, `1tZvZzhRKlrNdr5GNieDeQ2-7dnDAnATqF_zqnmmODdA`)).then((snapshot) => {
             if (snapshot.exists()) {
-                let data = snapshot.val();
+                let data = snapshot.val().Sheet1;
                 let projects = data.map(d => {
                         return {
                             id: d.id,
@@ -26,7 +27,7 @@ function Projects() {
                             subtitle: d.Time,
                             description: d.Description,
                             links: parseLinks(d.Links),
-                            badges: d.Badges
+                            badges: parseBadges(d.Badges, snapshot.val().Sheet2)
                     };
                 });
                 console.log(projects);
@@ -37,7 +38,7 @@ function Projects() {
         }).catch((error) => {
             console.error(error);
         });
-    }, [])
+    }, [dbRef])
 
     function parseLinks(d) {
         if (d.length === 0) return [];
@@ -48,6 +49,24 @@ function Projects() {
                 url: link.match(/\(.*\)/g)[0].slice(1, -1)
             }
         });
+    }
+
+    function parseBadges(d, mapping) {
+        let badges = d.split(',');
+        badges = badges.map((b, i) => {
+            return {
+                id: i,
+                label: b,
+                type: mapping[b] ? mapping[b].Type : "primary",
+            }
+        })
+        .map((b) => {
+            return {
+                ...b,
+                text: (b.type === "warning" || b.type === "light") ? "dark" : "light"
+            }
+        })
+        return badges;
     }
 
     return (
@@ -62,10 +81,18 @@ function Projects() {
                         <Card.Body>
                         <Card.Title>{p.title}</Card.Title>
                         <Card.Subtitle>{p.subtitle}</Card.Subtitle>
+                        {p.badges.map(b => (
+                            <span key={b.id}>
+                            <Badge bg={b.type} text={b.text}>
+                                {b.label}
+                            </Badge>
+                            &nbsp;
+                            </span>
+                        ))}
                         <hr/>
                         <Card.Text>{p.description}</Card.Text>
                         {p.links.map(l => (
-                            <Card.Link href={l.url}>
+                            <Card.Link key={l.url} href={l.url}>
                                 {l.label}
                             </Card.Link>
                         ))}

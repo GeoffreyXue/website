@@ -31,32 +31,7 @@ function Navigation() {
             </Navbar.Collapse>
             </Container>
             </Navbar>
-    )
-  return (
-    <Navbar collapseOnSelect bg="dark" variant="dark" sticky="top">
-        <Container>
-        <Navbar.Brand>
-            <img
-                src={terminal}
-                width='50'
-                height='30'
-                className="d-inline-block align-top"
-                alt='terminal logo'
-            />
-            Geoffrey Xue
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-            <Nav.Link href="/website">Home</Nav.Link>
-            <Nav.Link href="/website/#projects">Projects</Nav.Link>
-            <Nav.Link href="/website/#contact">Contact</Nav.Link>
-            <Nav.Link href="/website/#resume">Resumeblahblahblah</Nav.Link>
-            </Nav>
-        </Navbar.Collapse>
-        </Container>
-    </Navbar>
-  );
+    );
 }
 
 export default Navigation;

@@ -1,9 +1,9 @@
 import { createContext } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Navigation from './components/Navigation/Navigation'
 import Home from './components/Home/Home';
-import Contact from './components/Contact/Contact';
+// import Contact from './components/Contact/Contact';
 import Projects from './components/Projects/Projects';
 import Resume from './components/Resume/Resume';
 
