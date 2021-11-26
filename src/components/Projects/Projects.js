@@ -3,18 +3,8 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import geminid_systems from './../../images/geminid_systems.png';
-import robotics_documentation from './../../images/robotics_documentation.png';
-import swerve_drive from './../../images/swerve_drive.jpeg';
-import react_bootstrap from './../../images/react_bootstrap.png';
-import old_website from './../../images/old_website.png';
-import wpm_races from './../../images/wpm_races.png';
-
-import wpm from './../../images/wpm_over_time.png';
-
 import { getDatabase, ref, child, get } from "firebase/database";
 import { FirebaseContext } from './../../App';
-
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Projects.css';
