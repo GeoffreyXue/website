@@ -14,12 +14,15 @@ function Projects() {
     const app = useContext(FirebaseContext);
     const dbRef = ref(getDatabase(app));
     const [projects, setProjects] = useState([]);
+    const [upcoming, setUpcoming] = useState([]);
 
     useEffect(() => {
         get(child(dbRef, `1tZvZzhRKlrNdr5GNieDeQ2-7dnDAnATqF_zqnmmODdA`)).then((snapshot) => {
             if (snapshot.exists()) {
-                let data = snapshot.val().Sheet1;
-                let projects = data.map(d => {
+                let data = snapshot.val();
+
+                setProjects(
+                    data.Projects.map(d => {
                         return {
                             id: d.id,
                             url: d.Image,
@@ -27,11 +30,17 @@ function Projects() {
                             subtitle: d.Time,
                             description: d.Description,
                             links: parseLinks(d.Links),
-                            badges: parseBadges(d.Badges, snapshot.val().Sheet2)
-                    };
-                });
-                console.log(projects);
-                setProjects(projects, ...projects);
+                            badges: parseBadges(d.Badges.split(','), data.Badges)
+                        }
+                    })
+                );
+
+                setUpcoming(
+                    parseBadges(
+                        data.Upcoming.map(d => d.Upcoming), 
+                        data.Badges
+                    )
+                );
             } else {
                 console.log("No data available");
             }
@@ -51,8 +60,7 @@ function Projects() {
         });
     }
 
-    function parseBadges(d, mapping) {
-        let badges = d.split(',');
+    function parseBadges(badges, mapping) {
         badges = badges.map((b, i) => {
             return {
                 id: i,
@@ -73,6 +81,17 @@ function Projects() {
         <div className='Projects'>
             <div className='Scroll'>
             <div className='Introduction'>A list of projects/experiments/hacks.</div>
+            <div className='Upcoming'>
+                Upcoming projects underway are using: &nbsp;
+                {upcoming.map(b => (
+                    <span key={b.id}>
+                        <Badge bg={b.type} text={b.text}>
+                            {b.label}
+                        </Badge>
+                        &nbsp;
+                    </span>
+                ))}
+            </div>
             <Row xs={1} md={2} className="g-4">
                 {projects.map(p => (
                     <Col key={p.id}>

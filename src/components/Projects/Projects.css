@@ -9,9 +9,14 @@
     overflow-y: hidden;
 }
 
-.Introduction {
-    padding: calc(2vh) 0;
+.Upcoming {
+    padding: calc(1vh) 0;
     font-size: calc(2vh);
+}
+
+.Introduction {
+    padding: calc(1vh) 0;
+    font-size: calc(2.25vh);
 }
 
 .Card {
