@@ -1,7 +1,11 @@
 .Home {
-    height: calc(100vh - 56px);
+    flex: 0 1 auto;
     width: 100%;
     overflow-x: hidden;
+}
+
+.Content {
+    height: calc(100vh - 56px);
 }
 
 .Panel {

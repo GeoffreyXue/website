@@ -1,5 +1,12 @@
 .Projects {
+    flex: 0 1 auto;
+    overflow-y: scroll;
+}
+
+.Scroll {
     margin: 3vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .Introduction {

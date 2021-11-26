@@ -52,27 +52,29 @@ function Projects() {
 
     return (
         <div className='Projects'>
+            <div className='Scroll'>
             <div className='Introduction'>A list of projects/experiments/hacks.</div>
-        <Row xs={1} md={2} className="g-4 Projects">
-            {projects.map(p => (
-                <Col key={p.id}>
-                <Card>
-                    <Card.Img className='CardImage' variant="top" src={p.url} />
-                    <Card.Body>
-                    <Card.Title>{p.title}</Card.Title>
-                    <Card.Subtitle>{p.subtitle}</Card.Subtitle>
-                    <hr/>
-                    <Card.Text>{p.description}</Card.Text>
-                    {p.links.map(l => (
-                        <Card.Link href={l.url}>
-                            {l.label}
-                        </Card.Link>
-                    ))}
-                    </Card.Body>
-                </Card>
-                </Col>
-            ))}
-        </Row>
+            <Row xs={1} md={2} className="g-4">
+                {projects.map(p => (
+                    <Col key={p.id}>
+                    <Card>
+                        <Card.Img className='CardImage' variant="top" src={p.url} />
+                        <Card.Body>
+                        <Card.Title>{p.title}</Card.Title>
+                        <Card.Subtitle>{p.subtitle}</Card.Subtitle>
+                        <hr/>
+                        <Card.Text>{p.description}</Card.Text>
+                        {p.links.map(l => (
+                            <Card.Link href={l.url}>
+                                {l.label}
+                            </Card.Link>
+                        ))}
+                        </Card.Body>
+                    </Card>
+                    </Col>
+                ))}
+            </Row>
+            </div>
         </div>
     );
   }
