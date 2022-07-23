@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Navigation from './components/Navigation/Navigation'
 import Home from './components/Home/Home';
@@ -22,12 +22,12 @@ function App() {
     return (
         <FirebaseContext.Provider value={app}>
             <Navigation />
-            <Switch>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/home' component={Home} />
-                <Route exact path='/projects' component={Projects} />
-                <Route exact path='/resume' component={Resume} />
-            </Switch>
+            <Routes path='/website'>
+                <Route path='/home' element={<Home />} />
+                <Route path='/projects' element={<Projects />} />
+                <Route path='/resume' element={<Resume />} />
+                <Route path= '/*' element={<Navigate to='home' />} />
+            </Routes>
         </FirebaseContext.Provider>
     );
 }
