@@ -5,12 +5,13 @@
 }
 
 .Content {
+    position: relative;
     height: calc(100vh - 56px);
+    background-color: #1e3c65;
 }
 
 .Panel {
     height: 100%;
-    background-color: rgb(43, 52, 61);
 	display: grid;
 	align-items: center;
 	justify-items: center;
@@ -18,6 +19,27 @@
 
 .Panel > * {
 	grid-area: 1/1/1/1;
+}
+
+.Waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.Waves svg {
+    position: relative;
+    display: block;
+    width: calc(118% + 1.3px);
+    height: 413px;
+}
+
+.Waves .shape-fill {
+    fill: #2A538C;
 }
 
 .Strip {
@@ -76,7 +98,7 @@
     cursor: pointer;
     width: 25px;
     height: 25px;
-    fill: rgba(240, 240, 240, 0.1);
+    fill: rgba(240, 240, 240, 0.25);
 }
 
 .ContactIcon:hover {
@@ -89,6 +111,7 @@
 
 .Toast {
     position: absolute;
+    z-index: 1;
     width: fit-content;
     right: 0;
     top: 20px;

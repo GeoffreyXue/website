@@ -6,8 +6,8 @@ import Home from './components/Home/Home';
 import Projects from './components/Projects/Projects';
 import Resume from './components/Resume/Resume';
 
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
