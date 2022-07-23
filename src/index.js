@@ -6,7 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-    <HashRouter basename="/website">
+    <HashRouter basename="/~gxue">
         <App />
     </HashRouter>,
   document.getElementById('root')

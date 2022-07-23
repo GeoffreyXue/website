@@ -63,3 +63,34 @@
 .Body {
     padding: 3vw;
 }
+
+.Contacts {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.ContactIcon {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    fill: rgba(240, 240, 240, 0.1);
+}
+
+.ContactIcon:hover {
+    fill: rgba(240, 240, 240, 0.6);
+}
+
+.ToastContainer {
+    position: relative;
+}
+
+.Toast {
+    position: absolute;
+    width: fit-content;
+    right: 0;
+    top: 20px;
+    min-width: 275px;
+}
