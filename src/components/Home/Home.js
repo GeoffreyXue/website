@@ -11,14 +11,13 @@ function Home() {
         <div className='Home'>
             <div className="Content">
                 <div className='Panel'>
-                    <div className='Strip'/>
                     <div className='PictureBackground'>
                         <Image src={photo} className='Picture' roundedCircle/>
                     </div>
-                    <div className='Name'>Geoffrey Xue</div>
                     <div className='Information'>
-                        <div>PHS '17 - '21 🎓 UW Madison '21 - '24</div>
-                        <div>Computer Science, Data Science</div>
+                        <span className="Emoji">👋</span><span>Hello, I'm Geoffrey Xue!</span>
+                        <div>I'm a current student at UW Madison studying Computer Science and Data Science.</div>
+                        <div>Check out some of my projects and my resume above!</div>
                     </div>
                 </div>
                 <div className="Waves">

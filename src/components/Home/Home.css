@@ -3,26 +3,26 @@
     width: 100%;
     min-height: 100%;
     overflow-x: hidden;
+    background-color: #1e3c65;
 }
 
 .Content {
     position: relative;
     height: calc(100vh - 56px);
-    background-color: #1e3c65;
+
+    animation: fadeIn 1s;
 }
 
 .Panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100%;
-	display: grid;
-	align-items: center;
-	justify-items: center;
-}
-
-.Panel > * {
-	grid-area: 1/1/1/1;
 }
 
 .Waves {
+    z-index: 0;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -33,6 +33,7 @@
 }
 
 .Waves svg {
+    z-index: 0;
     position: relative;
     display: block;
     width: calc(118% + 1.3px);
@@ -43,43 +44,24 @@
     fill: #2A538C;
 }
 
-.Strip {
-    background-color: #1e3c65;
-    height: calc(0.5vh + 0.5vw);
-    width: 100vw;
-}
 
 .PictureBackground {
     width: calc(16vh + 12.5vw);
     height: calc(16vh + 12.5vw);
-
-    background-color: #1e3c65;
-    border-radius: 50%;
-    /* box-shadow: 0 0 25px rgba(0, 0, 0, 0.2); */
+    display: grid;
+    place-items: center;
+    z-index: 1;
 }
 
 .Picture {
-    position: relative;
-    z-index: 1;
-    width: calc(15vh + 11.5vw);
-    height: calc(15vh + 11.5vw);
-    top: calc(0.5vh + 0.5vw);
-    left: calc(0.5vh + 0.5vw);
+    width: 100%;
+    height: 100%;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
 }
 
-.Name {
-    position: relative;
-    z-index: 1;
-    top: calc(-11vh - 9vw);
-    color: white;
-    font-size: calc(2.5vh + 2vw);
-}
-
 .Information {
-    position: relative;
+    padding-top: 25px;
     z-index: 1;
-    top: calc(11vh + 9vw);
     color: white;
     font-size: calc(1.5vh + 1vw);
     text-align: center;
@@ -120,3 +102,50 @@
     top: 20px;
     min-width: 275px;
 }
+
+.Emoji {
+    animation-name: wave-animation;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
+    padding-right: 10px;
+}
+
+@keyframes wave-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    15% {
+      transform: rotate(14deg);
+    }
+    30% {
+      transform: rotate(-8deg);
+    }
+    40% {
+      transform: rotate(14deg);
+    }
+    50% {
+      transform: rotate(-4deg);
+    }
+    60% {
+      transform: rotate(10deg);
+    }
+    70% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+        opacity: 0;
+        z-index: 1;
+    }
+    100% {
+        opacity: 1;
+        z-index: 1;
+    }
+  }
